@@ -51,7 +51,7 @@ class Engine(object):
 
     def play(self):
         current_scene = self.scene_map.go_to_the_first_scene()
-        final_scene = self.scene_map.go_to_scene('finished')
+        final_scene = self.scene_map.go_to_scene('gryfiindorscommonroom')
 
         while current_scene != final_scene:
             next_scene_name = current_scene.enter()
@@ -164,20 +164,14 @@ class DarkForest(Scene):
             return 'death'
         else:
             print "Not recognizing the input. Are you putting in a number?"
-            return 'darkforest' 
+            return 'darkforest'
 
 class GryfiindorsCommonRoom(Scene):
 
     def enter(self):
-        pass
-
-class Finished(Scene):
-
-    def enter(self):
-        pass
-
-    def next_scene(self):
-        pass
+        print "Wow! You have successfully saved Ginny and all your professors and friends are so proud"
+        print "of you! They are hosting a great party for you the Gryfiindor's Common Room, enjoy it, you've earned it!"
+        return 'Finished! Congratulations!'
 
 class Map(object):
 
