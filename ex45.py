@@ -116,7 +116,37 @@ class GreatHall(Scene):
 class AstronomyTower(Scene):
 
     def enter(self):
-        pass
+        print "You are now at the Astronomy Tower and there is a giant black dragon waiting for you."
+        print "What would you do? \n A. You fight hard, with the new spell you've learned from class. \n"
+        print "B. You tell a joke. Remember? You can talk to snakes, maybe the dragon can understand you as well. \n"
+        print "C. You pet the dragon's head. He looks so cute. \n"
+        print "D. You give the dragon the gummy bear you stealed from the flobberworms. \n"
+        print "Now pick your choice!"
+
+        action = raw_input()
+        if action == 'A':
+            print "Okay, you apprently didn't pay attention in the class. You used the wrong spell and turned yourself"
+            print "into a little lamb. The dragon eat you and find you very yummy! You are dead."
+            return 'death'
+
+        if action == "B":
+            print "Viola! It worked! Turns out that you are really gifted in talking to animals. The dragon finds your"
+            print "joke very funny and he's very happy. He fly you to the dark forest."
+            return "darkforest"
+
+        if action == "C":
+            print "Okay, the dragon is not a puppy/kitten. And you missed the head and touched his teeth..."
+            print "The dragon tear you up and you are dead."
+            return 'death'
+
+        if action == "D":
+            print "Common, this is so common sense - a dragon eats meat, and that's you. You are dead."
+            return 'death'
+
+        else:
+            print "Not recognizing the input. Just choose among ABCD."
+            return 'astronomytower'
+
 
 class DarkForest(Scene):
 
