@@ -70,7 +70,7 @@ class Death(Scene):
     ]
 
     def enter(self):
-        print Death.quips[randint(0, len(self.quips))]
+        print Death.quips[randint(0, len(self.quips)-1)]
         exit(1)
 
 class GreatHall(Scene):
@@ -117,11 +117,12 @@ class AstronomyTower(Scene):
 
     def enter(self):
         print "You are now at the Astronomy Tower and there is a giant black dragon waiting for you."
-        print "What would you do? \n A. You fight hard, with the new spell you've learned from class. \n"
+        print "What would you do? \n"
+        print "A. You fight hard, with the new spell you've learned from class. \n"
         print "B. You tell a joke. Remember? You can talk to snakes, maybe the dragon can understand you as well. \n"
         print "C. You pet the dragon's head. He looks so cute. \n"
         print "D. You give the dragon the gummy bear you stealed from the flobberworms. \n"
-        print "Now pick your choice!"
+        print "Now pick your choice!\n"
 
         action = raw_input()
         if action == 'A':
@@ -155,7 +156,7 @@ class DarkForest(Scene):
         print "There are 3 doors. One of them is locking up Ginny. Open the correct one and you will save her! Now pick your number!"
 
         action = int(raw_input("> "))
-        answer = randint(0,3) + 1
+        answer = 3
         if action == answer:
             print "Congratulations! You have saved Ginny!!"
             return "gryfiindorscommonroom"
@@ -181,7 +182,6 @@ class Map(object):
         'astronomytower': AstronomyTower(),
         'darkforest': DarkForest(),
         'gryfiindorscommonroom': GryfiindorsCommonRoom(),
-        'finished': Finished()
 
     }
 
@@ -193,9 +193,9 @@ class Map(object):
         return scene_class
 
     def go_to_the_first_scene(self):
-        return self.go_to_the_first_scene(self.start_scene)
+        return self.go_to_scene(self.start_scene)
 
 
-a_map = Map('Hogwarts')
+a_map = Map('greathall')
 a_game = Engine(a_map)
 a_game.play()
