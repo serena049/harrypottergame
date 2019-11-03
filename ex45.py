@@ -72,11 +72,46 @@ class Death(Scene):
     def enter(self):
         print Death.quips[randint(0, len(self.quips))]
         exit(1)
-        
+
 class GreatHall(Scene):
 
     def enter(self):
-        pass
+        print "You are Harry Potter and your friend Ginny was taken by Lord VoLord Voldemort!"
+        print "Hagrid gave you a map, you need to go through a series halls/rooms at Hogwarts,"
+        print "each hall/room has a challenge that you need to take before going to the next."
+        print " Try your best to save Ginny! Good luck!\n"
+
+        print "You are at the Great Hall. This is the beginning of the game."
+        print "Suddenly, 100 Flobberworms (A 10 inch toothless brown worm) jump out!"
+        print "Their general present you a bag of gummy bear, and you have to pick their favorite color! Type in the color!"
+
+        action = raw_input("> ").lower()
+
+        if action == 'red':
+            print "Seriously? You really picked a color that reprent your blood?"
+            print "Man, this is not a good sign. The Flobberworms get so angry and they fly into you and eat your head."
+            print "You are dead."
+            return 'death'
+
+        if action == "yellow":
+            print "Hmmm...The Flobberworms are yellow, so they feel very offended when you pick yellow. "
+            print "They blast out their yello juicy to poison you and you are drowned to death."
+            return 'death'
+
+        if action == "green":
+            print "Ah! Very close, the Flobberworms decide to give you another chance!"
+            return 'greathall'
+
+        if action == "blue":
+            print "Yeah! You've picked the right color! The Flobberworms are very happy, they begin eatting all the blue gummy bears."
+            print "And it gives you time to sneak away, and quietly go to the Astronomy tower."
+            return 'astronomytower'
+
+        else:
+            print "Not recognizing the input! Remember, gummy bears only have 4 colors! Try again!"
+            return "greathall"
+
+
 
 class AstronomyTower(Scene):
 
