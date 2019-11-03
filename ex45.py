@@ -76,10 +76,10 @@ class Death(Scene):
 class GreatHall(Scene):
 
     def enter(self):
-        print "You are Harry Potter and your friend Ginny was taken by Lord VoLord Voldemort!"
+        print "You are Harry Potter and your friend Ginny was taken by Lord Voldemort!"
         print "Hagrid gave you a map, you need to go through a series halls/rooms at Hogwarts,"
         print "each hall/room has a challenge that you need to take before going to the next."
-        print " Try your best to save Ginny! Good luck!\n"
+        print "Try your best to save Ginny! Good luck!\n"
 
         print "You are at the Great Hall. This is the beginning of the game."
         print "Suddenly, 100 Flobberworms (A 10 inch toothless brown worm) jump out!"
@@ -151,7 +151,20 @@ class AstronomyTower(Scene):
 class DarkForest(Scene):
 
     def enter(self):
-        pass
+        print "Now you are at the final place - the dark forest. The wind is blowing hard and you can barely see what's in fromt of you."
+        print "There are 3 doors. One of them is locking up Ginny. Open the correct one and you will save her! Now pick your number!"
+
+        action = int(raw_input("> "))
+        answer = randint(0,3) + 1
+        if action == answer:
+            print "Congratulations! You have saved Ginny!!"
+            return "gryfiindorscommonroom"
+        elif action != answer:
+            print "Bad luck! Lord Voldemort come out and beat you to death."
+            return 'death'
+        else:
+            print "Not recognizing the input. Are you putting in a number?"
+            return 'darkforest' 
 
 class GryfiindorsCommonRoom(Scene):
 
