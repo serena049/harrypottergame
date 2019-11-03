@@ -70,8 +70,9 @@ class Death(Scene):
     ]
 
     def enter(self):
-        print De
-
+        print Death.quips[randint(0, len(self.quips))]
+        exit(1)
+        
 class GreatHall(Scene):
 
     def enter(self):
